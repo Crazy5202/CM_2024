@@ -1,3 +1,3 @@
 # CM_2024
 
-# govno govno dermoooooooooooo
+# da, takoy hokey nam ne nujen
