@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name = "description" content = "определение типа документа">
+        <meta name = "keywords" content = "pdf, определение типа, документ">
+        <title>Главная страница</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+
+
+    <body>
+    <header>
+        <div id="rectangle">
+            <img id = "icon", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <span id = "IdentiFile">IdentiFile</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="contacts">Контакты</a></li>
+                <li><a href="team">Команда</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div id = "main_rectangle">
+        <div id = "main_text"><p>Сайт IdentiFile поможет вам определить тип документа, наличие печати, 
+            подписи и других особых знаков. Для этого:</p>
+        <p>
+            <p><ul>
+                <li><span>Выберите нужный файл в поле "Загрузка".</span></li>
+                <li><span>Ожидайте ответа.</span></li>
+                <li><span>В окне "Итог" вы можете скачать результат анализа загруженного файла в формате PDF.</span></li>
+
+            </ul></p>
+            <!-- <div id = "button_input">
+                <input type = "file"/>
+            </div> -->
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Загрузить файл">
+            </form>
+            <!-- <p><div class="btn-group">
+                <input type = "file" class = "inp_btn"/>
+                <p class="btn-group__text">Загрузка</p>
+                <div class="btn-group__b">
+                    <button class="btn" type="button">Выберите файл</button>
+                    <img src="" alt="">
+                </div>
+            </div></p> -->
+            <p><div class="btn-group">
+                <p class="btn-group__text">Итог</p>
+                <div class="btn-group__b">
+                    <button class="btn" type="button">Скачать файл</button>
+                    <img src="" alt="">
+                </div>
+            </div></p>
+        </p>
+        </div>
+    </div>
+        
+
+    <footer>
+        <div id="rectangle2">
+            <img id = "icon2", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <span id = "IdentiFile2">IdentiFile, 2024</span>
+        </div>
+    </footer>        
+    </body>
+
+
+</html>

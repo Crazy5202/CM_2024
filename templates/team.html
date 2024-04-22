@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name = "description" content = "определение типа документа">
+        <meta name = "keywords" content = "pdf, определение типа, документ">
+        <title>Команда</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">2
+    </head>
+
+
+    <body>
+    <header>
+        <div id="rectangle">
+            <img id = "icon", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <span id = "IdentiFile">IdentiFile</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="contacts">Контакты</a></li>
+                <li><a href="#">Команда</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div id = "main_rectangle">
+        <div id = "t_main_text">
+            <p>Над созданием сайта работали:</p>
+        </div>
+
+        <div class="image-gallery1">
+            <div class="image-item1">
+                <img src="{{ url_for('static', filename='images/1.png') }}" alt="">
+                <div class="caption">Backend</div>
+            </div>
+            <div class="image-item1">
+                <img src="{{ url_for('static', filename='images/2.png') }}" alt="">
+                <div class="caption">Director</div>
+            </div>
+            <div class="image-item1">
+                <img src="{{ url_for('static', filename='images/3.png') }}" alt="">
+                <div class="caption">Frontend</div>
+            </div>
+        </div>
+
+
+        <div class="text-container1">
+            <div class="text-block">
+                <p>Юрков Евгений</p>
+                <p>Юрьевич,</p>
+                <p>Эсмедляев Федор</p>
+                <p>Романович</p>
+            </div>
+            <div class="text-block">
+                <p>Куценко Максим</p>
+                <p>Дмитриевич</p>
+            </div>
+            <div class="text-block">
+                <p>Кайдалова Александра</p>
+                <p>Андреевна,</p>
+                <p>Басова Татьяна</p>
+                <p>Валентиновна</p>
+            </div>
+        </div>
+        
+
+
+        <div class="image-gallery2">
+            <div class="image-item2">
+                <img src="{{ url_for('static', filename='images/4.png') }}" alt="">
+                <div class="caption">DevOps</div>
+            </div>
+            <div class="image-item2">
+                <img src="{{ url_for('static', filename='images/5.png') }}" alt="">
+                <div class="caption">Technical writer</div>
+            </div>
+            <div class="image-item2">
+                <img src="{{ url_for('static', filename='images/6.png') }}" alt="">
+                <div class="caption">Tester</div>
+            </div>
+            <div class="image-item2">
+                <img src="{{ url_for('static', filename='images/7.png') }}" alt="">
+                <div class="caption">ML-engineer </div>
+            </div>
+            
+        </div>
+        
+        <div class="text-container2">
+            <div class="text-block">
+                <p>Салихов Тимур</p>
+                <p>Русланович</p>
+            </div>
+            <div class="text-block">
+                <p>Драновский Иван</p>
+                <p>Дмитриевич</p>
+            </div>
+            <div class="text-block">
+                <p>Епифанов Евгений</p>
+                <p>Валерьевич</p>
+            </div>
+            <div class="text-block">
+                <p>Головенко Анатолий</p>
+                <p>Валерьевич,</p>
+                <p>Жаворонков Михаил</p>
+                <p>Николаевич</p>
+            </div>
+        </div>
+
+
+        </p>
+        </div>
+    </div>
+        
+
+    <footer>
+        <div id="rectangle2">
+            <img id = "icon2", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <span id = "IdentiFile2">IdentiFile, 2024</span>
+        </div>
+    </footer>        
+    </body>
+
+
+</html>

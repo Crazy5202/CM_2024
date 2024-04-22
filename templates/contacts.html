@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name = "description" content = "определение типа документа">
+        <meta name = "keywords" content = "pdf, определение типа, документ">
+        <title>Контакты</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">2
+    </head>
+
+
+    <body>
+    <header>
+        <div id="rectangle">
+            <img id = "icon", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <span id = "IdentiFile">IdentiFile</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="team">Команда</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div id = "main_rectangle">
+        <div id = "c_main_text1">
+            <p>Контакты</p>
+        </div>
+        <div id = "c_main_text2">
+            <p>Если у вас возникли вопросы, свяжитесь с нами любым удобным для вас способом:</p>
+        </div>
+        
+        <div class="image-container">
+            <a href="https://t.me/Crazy523">
+                <img id = "icons", src="{{ url_for('static', filename='images/tg.png') }}" alt="">
+            </a>
+            <a href="mailto:maximkuts23@mail.ru">
+                <img id = "icons", src="{{ url_for('static', filename='images/p.png') }}" alt="">
+            </a> 
+            <a href="https://vk.me/crazy_52">
+                <img id = "icons", src="{{ url_for('static', filename='images/vk.png') }}" alt="">
+            </a>              
+        </div></p>
+    </div>
+        
+
+    <footer>
+        <div id="rectangle2">
+            <img id = "icon2", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <span id = "IdentiFile2">IdentiFile, 2024</span>
+        </div>
+    </footer>        
+    </body>
+
+
+</html>
+
+
+
