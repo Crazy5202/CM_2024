@@ -1,8 +1,3 @@
-/* html {
-  position: relative;
-  min-height: 110%;
-} */
-
 * {
   margin: 0;
   padding: 0;
@@ -53,12 +48,15 @@ header {
 }
 
 #rectangle {
-  position: relative;
-  left: 11%;
+  position: absolute;
   margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   display: flex;
-  width:215px;
-  height:55px;
+  width: 215px;
+  height: 55px;
   background: #2CD2F8;
   box-shadow: 0 4px 6px;
 }
@@ -67,7 +65,7 @@ header {
   font-size: 22px;
   text-align: center;
   position: relative;
-  padding: 7% 0%;
+  padding: 7% 1%;
 }
 
 #icon {
@@ -126,7 +124,8 @@ footer {
 /* INDEX */
 
 #main_text{
-  padding: 4% 5%;
+  text-align: left;
+  padding: 4%;
   line-height: 1.5;
   font-size: 20px;
 }
@@ -144,7 +143,11 @@ div ul li span{
 
 .btn-group__b{
   display: flex;
+  padding-bottom: 6%;
+}
 
+.btn:hover {
+  cursor: pointer;
 }
 
 .btn{
@@ -159,6 +162,7 @@ div ul li span{
 }
 
 .btn-group__text{
+  padding-top: 5%;
   font-size: 22px;
   text-align: center;
 }
@@ -175,13 +179,14 @@ div ul li span{
 /* CONTACTS */
 
 #c_main_text1{
-  padding: 4% 46%;
+  padding: 4%;
   line-height: 1.5;
   font-size: 22px;
+  text-align: center;
 }
 
 #c_main_text2{
-  padding: 0% 33%;
+  padding: 3% 33%;
   line-height: 1.5;
   font-size: 20px;
   text-align: center;
@@ -192,17 +197,16 @@ div ul li span{
   display: flex;
   justify-content: center;
   padding-bottom: 10%;
-}
-
-#icons {
-  padding: 0 3%;
-  transform: scale(0.5);
+  padding-left: 25%;
+  padding-right: 25%;
+  justify-content: space-around;
 }
 
 /* TEAM */
 
 #t_main_text {
-  padding: 4% 33.5%;
+  text-align: center;
+  padding: 4%;
   line-height: 1.5;
   font-size: 22px;
 }
@@ -264,4 +268,3 @@ div ul li span{
   text-align: center;
   line-height: 1.5;
 }
-

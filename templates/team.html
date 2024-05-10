@@ -5,21 +5,22 @@
         <meta name = "description" content = "определение типа документа">
         <meta name = "keywords" content = "pdf, определение типа, документ">
         <title>Команда</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">2
+        <link rel = "icon" href="static/images/favicon.png" type = "image/png">
+        <link rel="stylesheet" href="static/styles.css">2
     </head>
 
 
     <body>
     <header>
         <div id="rectangle">
-            <img id = "icon", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <img id = "icon", src = "static/images/icon.png">
             <span id = "IdentiFile">IdentiFile</span>
         </div>
         <nav>
             <ul>
                 <li><a href="/">Главная</a></li>
                 <li><a href="contacts">Контакты</a></li>
-                <li><a href="#">Команда</a></li>
+                <li><a href="team">Команда</a></li>
             </ul>
         </nav>
     </header>
@@ -32,15 +33,15 @@
 
         <div class="image-gallery1">
             <div class="image-item1">
-                <img src="{{ url_for('static', filename='images/1.png') }}" alt="">
+                <img src="static/images/1.png" alt="">
                 <div class="caption">Backend</div>
             </div>
             <div class="image-item1">
-                <img src="{{ url_for('static', filename='images/2.png') }}" alt="">
+                <img src="static/images/2.png" alt="">
                 <div class="caption">Director</div>
             </div>
             <div class="image-item1">
-                <img src="{{ url_for('static', filename='images/3.png') }}" alt="">
+                <img src="static/images/3.png" alt="">
                 <div class="caption">Frontend</div>
             </div>
         </div>
@@ -69,19 +70,19 @@
 
         <div class="image-gallery2">
             <div class="image-item2">
-                <img src="{{ url_for('static', filename='images/4.png') }}" alt="">
+                <img src="static/images/4.png" alt="">
                 <div class="caption">DevOps</div>
             </div>
             <div class="image-item2">
-                <img src="{{ url_for('static', filename='images/5.png') }}" alt="">
+                <img src="static/images/5.png" alt="">
                 <div class="caption">Technical writer</div>
             </div>
             <div class="image-item2">
-                <img src="{{ url_for('static', filename='images/6.png') }}" alt="">
+                <img src="static/images/6.png" alt="">
                 <div class="caption">Tester</div>
             </div>
             <div class="image-item2">
-                <img src="{{ url_for('static', filename='images/7.png') }}" alt="">
+                <img src="static/images/7.png" alt="">
                 <div class="caption">ML-engineer </div>
             </div>
             
@@ -116,7 +117,7 @@
 
     <footer>
         <div id="rectangle2">
-            <img id = "icon2", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <img id = "icon2", src = "static/images/icon.png">
             <span id = "IdentiFile2">IdentiFile, 2024</span>
         </div>
     </footer>        

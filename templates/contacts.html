@@ -5,20 +5,21 @@
         <meta name = "description" content = "определение типа документа">
         <meta name = "keywords" content = "pdf, определение типа, документ">
         <title>Контакты</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">2
+        <link rel = "icon" href="static/images/favicon.png" type = "image/png">
+        <link rel="stylesheet" href="static/styles.css">2
     </head>
 
 
     <body>
     <header>
         <div id="rectangle">
-            <img id = "icon", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <img id = "icon", src = "static/images/icon.png">
             <span id = "IdentiFile">IdentiFile</span>
         </div>
         <nav>
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="contacts">Контакты</a></li>
                 <li><a href="team">Команда</a></li>
             </ul>
         </nav>
@@ -35,13 +36,13 @@
         
         <div class="image-container">
             <a href="https://t.me/Crazy523">
-                <img id = "icons", src="{{ url_for('static', filename='images/tg.png') }}" alt="">
+                <img id = "icons", src="static/images/tg.png" alt="">
             </a>
             <a href="mailto:maximkuts23@mail.ru">
-                <img id = "icons", src="{{ url_for('static', filename='images/p.png') }}" alt="">
+                <img id = "icons", src="static/images/p.png" alt="">
             </a> 
             <a href="https://vk.me/crazy_52">
-                <img id = "icons", src="{{ url_for('static', filename='images/vk.png') }}" alt="">
+                <img id = "icons", src="static/images/vk.png" alt="">
             </a>              
         </div></p>
     </div>
@@ -49,7 +50,7 @@
 
     <footer>
         <div id="rectangle2">
-            <img id = "icon2", src = "{{ url_for('static', filename='images/иконка.png') }}">
+            <img id = "icon2", src = "static/images/icon.png">
             <span id = "IdentiFile2">IdentiFile, 2024</span>
         </div>
     </footer>        
