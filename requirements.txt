@@ -1,0 +1,7 @@
+Python:
+    flask
+    ultralytics
+    pdf2image
+    img2pdf
+linux:
+    poppler
