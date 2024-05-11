@@ -1,0 +1,13 @@
+FROM python:3.12-alpine3.19
+
+WORKDIR /app
+
+COPY ./cert/ /app/cert/
+COPY ./static /app/static
+COPY ./templates /app/templates
+COPY ./main.py /app/
+COPY ./requirements.txt /app/
+
+RUN pip install --no-cahce-dir -r requirements.txt
+
+CMD [ "python", "./main.py" ]
