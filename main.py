@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -20,4 +20,5 @@ def team():
 
 
 if __name__ == '__main__':
-    app.run(port=8080, debug=True, threaded=True)
+    context = ("./cert/cert.crt", "./cert/privkey.key")
+    app.run("www.identifile.ru", port=443, debug=True, threaded=True, ssl_context=context)

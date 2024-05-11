@@ -31,4 +31,5 @@ def check():
 
 
 if __name__ == '__main__':
-    app.run(port=3000, debug=True, threaded=True)
+    context = ("./cert/cert.crt", "./cert/privkey.key")
+    app.run(port=3000, debug=True, threaded=True, ssl_context=context)
