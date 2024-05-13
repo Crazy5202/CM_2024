@@ -21,4 +21,5 @@ def team():
 
 if __name__ == '__main__':
     context = ("./cert/cert.crt", "./cert/privkey.key")
-    app.run(port=443, debug=True, threaded=True, ssl_context=context)
+    app.run(host='0.0.0.0', port=443, debug=True,
+            threaded=True, ssl_context=context)
