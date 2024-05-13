@@ -1,4 +1,4 @@
-FROM python:3.11-alpine3.19
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -7,8 +7,8 @@ COPY ./processing /app/processing
 COPY ./check.py /app/
 COPY ./requirements.backend.txt /app/requirements.txt
 
-RUN apk update
-RUN apk add poppler
+RUN apt update && apt upgrade -y
+RUN apt install poppler-utils -y
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "python", "./check.py" ]
