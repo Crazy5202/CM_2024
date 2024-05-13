@@ -9,6 +9,7 @@ COPY ./requirements.backend.txt /app/requirements.txt
 
 RUN apt update && apt upgrade -y
 RUN apt install poppler-utils -y
+RUN apt-get install -y libgl1-mesa-dev -y
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "python", "./check.py" ]
