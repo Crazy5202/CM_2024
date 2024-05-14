@@ -20,3 +20,7 @@ services:
     environment:
       - TOKEN=lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG
     restart: on-failure
+    resources:
+      limits:
+        memory: 2G
+        memory-swap: 10G
