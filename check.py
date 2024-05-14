@@ -16,6 +16,8 @@ def check():
 
     data = request.files["file"].read()
     app.logger.debug("File has been recieved")
+    if not path.exists(f"{storagePath}"):
+        mkdir(f"{storagePath}")
     if not path.exists(f"{storagePath}/{identifier}"):
         mkdir(f"{storagePath}/{identifier}")
     targetFile = open(f"{storagePath}/{identifier}/target.pdf", mode='wb')
