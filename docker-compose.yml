@@ -24,4 +24,4 @@ services:
       resources:
         limits:
           memory: 2G
-    memswap_limit: 10G
+    memswap_limit: 4G
