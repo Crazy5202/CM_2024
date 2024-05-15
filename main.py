@@ -21,4 +21,4 @@ def team():
 
 if __name__ == '__main__':
     context = ("./cert/cert.crt", "./cert/privkey.key")
-    app.run(port=443, debug=True, threaded=True, ssl_context=context)
+    app.run("www.identifile.ru", port=443, debug=True, threaded=True, ssl_context=context)
