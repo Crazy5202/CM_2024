@@ -1,16 +1,18 @@
-from transformator import transform
-from make_predict import final
-from back_transformator import back_swap
+from .transformator import transform
+from .make_predict import final
+from .back_transformator import back_swap
 import shutil
-import os
 
-path_to_pdfs = 'Doc_detect/predicts'
-target = transform(path_to_pdfs)
+def process(path):
+    target = transform(path)
 
-path_to_converted = final(target)
+    path_to_converted = final(target, path)
 
-output_folder = 'Doc_detect/predicts/output'
-back_swap(path_to_converted, output_folder)
+    back_swap(path_to_converted, path)
 
-shutil.rmtree(target)
-shutil.rmtree(path_to_converted)
+    shutil.rmtree(target)
+    shutil.rmtree(path_to_converted)
+
+if __name__ == '__main__':
+    path = input()
+    process(path)
