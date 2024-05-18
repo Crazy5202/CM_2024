@@ -2,9 +2,10 @@ from flask import Flask, send_file, request
 from os import path, mkdir
 from shutil import rmtree
 from processing.mstiteli_final import process
-from threading import Thread
+from flask_request_id import RequestID
 
 app = Flask(__name__)
+RequestID(app)
 
 storagePath = "./storage"
 
@@ -12,7 +13,9 @@ storagePath = "./storage"
 @app.route("/api/check", methods=["POST"])
 def check():
     token = request.form["token"]
-    identifier = 1234
+    if token != "lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG":
+        return "401 error", 401
+    identifier = request.environ.get("REQUEST_ID")
 
     data = request.files["file"].read()
     app.logger.debug("File has been recieved")
