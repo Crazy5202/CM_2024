@@ -5,6 +5,7 @@ from PIL import Image
 
 Image.MAX_IMAGE_PIXELS = 200000000
 
+
 def transform(path):
     target_folder = os.path.join(path, 'images')
 
@@ -14,9 +15,10 @@ def transform(path):
     pdf_folder = Path(os.path.join(path, "pdf"))
     for pdf_file in pdf_folder.rglob("*.pdf"):
         pdf_file_path = str(pdf_file)
-        images = convert_from_path(pdf_file_path, 500, poppler_path=r'C:\Users\fedor\Downloads\Release-24.02.0-0\poppler-24.02.0\Library\bin')
+        images = convert_from_path(pdf_file_path, 500)
         for i, image in enumerate(images):
-            image_path = os.path.join(target_folder, f"{pdf_file.stem}_page{i}.jpg")
+            image_path = os.path.join(
+                target_folder, f"{pdf_file.stem}_page{i}.jpg")
             image.save(image_path, 'JPEG')
             del image
 
