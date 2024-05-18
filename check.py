@@ -1,5 +1,5 @@
 from flask import Flask, send_file, request
-from os import path, mkdir
+from os import path, mkdir, environ
 from shutil import rmtree
 from processing.mstiteli_final import process
 from flask_request_id import RequestID
@@ -13,7 +13,7 @@ storagePath = "./storage"
 @app.route("/api/check", methods=["POST"])
 def check():
     token = request.form["token"]
-    if token != "lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG":
+    if token != environ["TOKEN"]:
         return "401 error", 401
     identifier = request.environ.get("REQUEST_ID")
 
