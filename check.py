@@ -1,4 +1,4 @@
-from flask import Flask, send_file ,request
+from flask import Flask, send_file, request
 from os import path, mkdir
 from shutil import rmtree
 from processing.mstiteli_final import process
@@ -16,6 +16,8 @@ def check():
 
     data = request.files["file"].read()
     app.logger.debug("File has been recieved")
+    if not path.exists(f"{storagePath}"):
+        mkdir(f"{storagePath}")
     if not path.exists(f"{storagePath}/{identifier}"):
         mkdir(f"{storagePath}/{identifier}")
     targetFile = open(f"{storagePath}/{identifier}/target.pdf", mode='wb')
@@ -23,7 +25,7 @@ def check():
 
     process(f"{storagePath}/{identifier}")
     app.logger.debug("Success!")
-    
+
     response = send_file(f"{storagePath}/{identifier}/output.pdf")
     rmtree(f"{storagePath}/{identifier}")
     response.headers.add("Access-Control-Allow-Origin", "*")
@@ -32,4 +34,5 @@ def check():
 
 if __name__ == '__main__':
     context = ("./cert/cert.crt", "./cert/privkey.key")
-    app.run(port=3000, debug=True, threaded=True, ssl_context=context)
+    app.run(host='0.0.0.0', port=3000, debug=True,
+            threaded=True, ssl_context=context)

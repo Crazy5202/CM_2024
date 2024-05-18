@@ -1,12 +1,17 @@
-FROM python:3.12-alpine3.19
+FROM python:3.11-slim
 
 WORKDIR /app
+
+COPY ./requirements.backend.txt /app/requirements.txt
+
+RUN apt update && apt upgrade -y
+RUN apt install poppler-utils -y
+RUN apt-get install libgl1-mesa-dev -y
+RUN apt-get install libglib2.0-0 -y
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./cert/ /app/cert/
 COPY ./processing /app/processing
 COPY ./check.py /app/
-COPY ./requirements.txt /app/
-
-RUN pip install --no-cahce-dir -r requirements.txt
 
 CMD [ "python", "./check.py" ]

@@ -1,4 +1,4 @@
-FROM python:3.12-alpine3.19
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -6,8 +6,8 @@ COPY ./cert/ /app/cert/
 COPY ./static /app/static
 COPY ./templates /app/templates
 COPY ./main.py /app/
-COPY ./requirements.txt /app/
+COPY ./requirements.frontend.txt /app/requirements.txt
 
-RUN pip install --no-cahce-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "python", "./main.py" ]

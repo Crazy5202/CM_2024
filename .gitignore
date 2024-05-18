@@ -1,5 +1,4 @@
 .venv/
 storage/
 __pycache__/
-images/
 labels/
