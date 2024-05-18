@@ -12,7 +12,7 @@ def transform(path):
     if not os.path.exists(target_folder):
         os.makedirs(target_folder)
 
-    pdf_folder = Path(os.path.join(path, "pdf"))
+    pdf_folder = Path(path)
     for pdf_file in pdf_folder.rglob("*.pdf"):
         pdf_file_path = str(pdf_file)
         images = convert_from_path(pdf_file_path, 500)
