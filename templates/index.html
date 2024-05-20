@@ -6,7 +6,7 @@
     <meta name="keywords" content="pdf, определение типа, документ">
     <title>Главная страница</title>
     <link rel="icon" href="static/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="static/styles.css">2
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 
 
@@ -42,9 +42,11 @@
             <p>
             <div class="btn-group">
                 <p class="btn-group__text">Загрузка</p>
+                <div id="loading" class="hidden loading"></div>
+
                 <div class="btn-group__b">
                     <label class="btn" for="input-file-btn">
-                        <input type="file" id="input-file-btn" hidden>
+                        <input type="file" id="input-file-btn" hidden accept=".pdf">
                         Выберите файл
                     </label>
                 </div>
@@ -72,6 +74,13 @@
 </body>
 
 <script>
+    const showLoading = () => {
+        document.getElementById("loading").classList.remove("hidden");
+    };
+    // Скрыть колесо загрузки
+    const hideLoading = () => {
+        document.getElementById("loading").classList.add("hidden");
+    };
     // Получить элемент кнопки
     const inputFileBtn = document.getElementById("input-file-btn");
 
@@ -79,6 +88,15 @@
     inputFileBtn.addEventListener("change", async () => {
         // Получить выбранный файл
         const file = inputFileBtn.files[0];
+
+        // Проверить тип файла
+        if (file.type !== "application/pdf") {
+            alert("Пожалуйста, выберите файл PDF.");
+            return; // Прервать обработку, если файл не является PDF
+
+        } else {
+            showLoading();
+        }
 
         // Создать форму для отправки файла
         const formData = new FormData();
@@ -103,6 +121,7 @@
         const downloadLink = document.createElement("a");
         downloadLink.href = URL.createObjectURL(blob);
         downloadLink.download = "output.pdf";
+        hideLoading();
 
         // Начать скачивание файла
         downloadLink.click();
