@@ -4,14 +4,14 @@
 Данный проект направлен на создание сервиса, который позволит определять признаки различных документов на основе технологий машинного обучения.
 
 ## Состав репозитория
-cert - содержит данные о SSL сертификате
-processing - содержит ресрсы для обработки изображений
-static - содержит ресурсы для веб-страниц
-templates - содержит html страницы
-check.py - backend скрипт
-docker-compose.yml - конфигурационный файл для docker compose
-Dockerfile.backend - backend образ
-Dcokerfile.frontend - frontend образ
-main.py - frontend скрипт
-requirements.backend.txt - файл с модулями для backend
-requirements.frontend.txt - файл с модулями для frontend
+1. **cert** - содержит данные о SSL сертификате.
+2. **processing** - содержит ресрсы для обработки изображений.
+3. **static** - содержит ресурсы для веб-страниц.
+4. **templates** - содержит html страницы.
+5. **check.py** - backend скрипт.
+6. **docker-compose.yml** - конфигурационный файл для docker compose
+7. **Dockerfile.backend** - backend образ
+8. **Dockerfile.frontend** - frontend образ
+9. **main.py** - frontend скрипт
+10. **requirements.backend.txt** - файл с модулями для backend
+11. **requirements.frontend.txt** - файл с модулями для frontend
