@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="определение типа документа">
+    <meta name="keywords" content="pdf, определение типа, документ">
+    <title>Главная страница</title>
+    <link rel="icon" href="static/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <div id="rectangle">
+            <img id="icon" , src="static/images/icon.png">
+            <span id="IdentiFile">IdentiFile</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="contacts">Контакты</a></li>
+                <li><a href="team">Команда</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div id="main_rectangle">
+        <div id="main_text">
+            <p>Сайт IdentiFile поможет вам определить тип документа, наличие печати,
+                подписи и других особых знаков. Для этого:</p>
+            <p>
+            <p>
+            <ul>
+                <li><span>Выберите нужный файл в поле "Загрузка".</span></li>
+                <li><span>Ожидайте ответа.</span></li>
+                <li><span>Анализа загруженного файла в формате PDF будет автоматически скачан.</span></li>
+
+            </ul>
+            </p>
+            <p>
+            <div class="btn-group">
+                <p class="btn-group__text">Загрузка</p>
+                <div id="loading" class="hidden loading"></div>
+
+                <div class="btn-group__b">
+                    <label class="btn" for="input-file-btn">
+                        <input type="file" id="input-file-btn" hidden accept=".pdf">
+                        Выберите файл
+                    </label>
+                </div>
+            </div>
+            </p>
+
+            <!-- <p><div class="btn-group">
+                <p class="btn-group__text">Итог</p>
+                <div class="btn-group__b">
+                    <button class="btn" type="button">Скачать файл</button>
+                    <img src="" alt="">
+                </div>
+            </div></p> -->
+            </p>
+        </div>
+    </div>
+
+
+    <footer>
+        <div id="rectangle2">
+            <img id="icon2" , src="static/images/icon.png">
+            <span id="IdentiFile2">IdentiFile, 2024</span>
+        </div>
+    </footer>
+</body>
+
+<script>
+    const showLoading = () => {
+        document.getElementById("loading").classList.remove("hidden");
+    };
+    // Скрыть колесо загрузки
+    const hideLoading = () => {
+        document.getElementById("loading").classList.add("hidden");
+    };
+    // Получить элемент кнопки
+    const inputFileBtn = document.getElementById("input-file-btn");
+
+    // Обработчик события изменения файла
+    inputFileBtn.addEventListener("change", async () => {
+        // Получить выбранный файл
+        const file = inputFileBtn.files[0];
+
+        // Проверить тип файла
+        if (file.type !== "application/pdf") {
+            alert("Пожалуйста, выберите файл PDF.");
+            return; // Прервать обработку, если файл не является PDF
+
+        } else {
+            showLoading();
+        }
+
+        // Создать форму для отправки файла
+        const formData = new FormData();
+        const token = "lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG";
+
+        formData.append("file", file);
+        formData.append("token", 'lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG')
+
+        // Отправить POST-запрос
+        const response = await fetch("https://identifile.ru:3000/api/check", {
+            method: "POST",
+            // mode: "cors",
+            body: formData,
+        });
+
+        console.log(response)
+
+        // Получить другой файл с сервера
+        const blob = await response.blob();
+
+        // Создать ссылку для скачивания файла
+        const downloadLink = document.createElement("a");
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = "output.pdf";
+        hideLoading();
+
+        // Начать скачивание файла
+        downloadLink.click();
+    });
+
+
+</script>
+
+
+
+</html>
