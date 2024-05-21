@@ -68,6 +68,12 @@ header {
   padding: 7% 1%;
 }
 
+#IdentiFile a {
+  color: black;
+  text-decoration: none;
+}
+
+
 #icon {
   padding: 0 2%;
   transform: scale(0.8);
@@ -177,6 +183,53 @@ div ul li span {
   opacity: 0;
 }
 
+/* #loading {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 48%;
+  transform: translate(-50%, -50%);
+} */
+
+#loading {
+  position: absolute;
+  left: 47.5%;
+  top: -5%;
+  /* transform: translateY(-50%); */
+}
+
+.btn-group {
+  position: relative;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #3498db;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn.disabled {
+  background-color: #ccc;
+  pointer-events: none;
+}
+
 /* CONTACTS */
 
 #c_main_text1 {
@@ -269,37 +322,4 @@ div ul li span {
   font-size: 18px;
   text-align: center;
   line-height: 1.5;
-}
-
-#loading {
-  position: absolute;
-  top: calc(50% - 25px);
-  left: 48%;
-  transform: translate(-50%, -50%);
-}
-
-
-
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.loading {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 5px solid #3498db;
-  animation: spin 1s linear infinite;
-}
-
-.hidden {
-  display: none;
 }

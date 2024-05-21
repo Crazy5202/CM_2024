@@ -5,22 +5,21 @@
     <meta name="description" content="определение типа документа">
     <meta name="keywords" content="pdf, определение типа, документ">
     <title>Главная страница</title>
-    <link rel="icon" href="static/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 
 <body>
     <header>
         <div id="rectangle">
-            <img id="icon" , src="static/images/icon.png">
+            <img id="icon" , src="images/icon.png">
             <span id="IdentiFile">IdentiFile</span>
         </div>
         <nav>
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="contacts">Контакты</a></li>
-                <li><a href="team">Команда</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="team.html">Команда</a></li>
             </ul>
         </nav>
     </header>
@@ -45,42 +44,37 @@
                 <div id="loading" class="hidden loading"></div>
 
                 <div class="btn-group__b">
-                    <label class="btn" for="input-file-btn">
+                    <label id="file-label" class="btn" for="input-file-btn">
                         <input type="file" id="input-file-btn" hidden accept=".pdf">
                         Выберите файл
                     </label>
                 </div>
             </div>
             </p>
-
-            <!-- <p><div class="btn-group">
-                <p class="btn-group__text">Итог</p>
-                <div class="btn-group__b">
-                    <button class="btn" type="button">Скачать файл</button>
-                    <img src="" alt="">
-                </div>
-            </div></p> -->
             </p>
         </div>
     </div>
 
-
     <footer>
         <div id="rectangle2">
-            <img id="icon2" , src="static/images/icon.png">
+            <img id="icon2" , src="images/icon.png">
             <span id="IdentiFile2">IdentiFile, 2024</span>
         </div>
     </footer>
 </body>
 
 <script>
+
     const showLoading = () => {
         document.getElementById("loading").classList.remove("hidden");
+        document.getElementById("file-label").classList.add("disabled");
     };
-    // Скрыть колесо загрузки
+
     const hideLoading = () => {
         document.getElementById("loading").classList.add("hidden");
+        document.getElementById("file-label").classList.remove("disabled");
     };
+
     // Получить элемент кнопки
     const inputFileBtn = document.getElementById("input-file-btn");
 
@@ -96,6 +90,7 @@
 
         } else {
             showLoading();
+
         }
 
         // Создать форму для отправки файла
@@ -125,11 +120,8 @@
 
         // Начать скачивание файла
         downloadLink.click();
+        window.location.reload();
     });
-
-
 </script>
-
-
 
 </html>
