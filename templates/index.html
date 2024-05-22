@@ -119,7 +119,8 @@
         hideLoading();
 
         // Начать скачивание файла
-        await downloadLink.click();
+        downloadLink.click();
+        setTimeout(() => { }, 1000);
         window.location.reload();
     });
 </script>
