@@ -32,8 +32,7 @@ def final(dir_path, predict_path):
         # Получите все классы найденных объектов
         detected_classes = [result.names[int(cls)] for result in results for cls in result.boxes.cls]
 
-        razm = False
-        if (detected_classes):
-            razm = True
+        for detect in detected_classes:
+            count[detect] += 1
 
-    return predict_dir, razm
+    return predict_dir, count
