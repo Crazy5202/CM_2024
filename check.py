@@ -3,6 +3,7 @@ from os import path, mkdir, environ
 from shutil import rmtree
 from processing.mstiteli_final import process
 from flask_request_id import RequestID
+import json
 
 app = Flask(__name__)
 RequestID(app)
@@ -26,12 +27,15 @@ def check():
     targetFile = open(f"{storagePath}/{identifier}/target.pdf", mode='wb')
     targetFile.write(data)
 
-    process(f"{storagePath}/{identifier}")
+    detected = json.dumps(process(f"{storagePath}/{identifier}"))
     app.logger.debug("Success!")
 
     response = send_file(f"{storagePath}/{identifier}/output.pdf")
     rmtree(f"{storagePath}/{identifier}")
     response.headers.add("Access-Control-Allow-Origin", "*")
+
+    app.logger.debug(detected)
+    response.headers.add("Detected", detected)
     return response
 
 
