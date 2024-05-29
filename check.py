@@ -33,6 +33,7 @@ def check():
     response = send_file(f"{storagePath}/{identifier}/output.pdf")
     rmtree(f"{storagePath}/{identifier}")
     response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Expose-Headers", "*")
 
     app.logger.debug(detected)
     response.headers.add("Detected", detected)
