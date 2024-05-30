@@ -51,6 +51,14 @@
                 </div>
             </div>
             </p>
+
+            <!-- <p><div class="btn-group">
+                <p class="btn-group__text">Итог</p>
+                <div class="btn-group__b">
+                    <button class="btn" type="button">Скачать файл</button>
+                    <img src="" alt="">
+                </div>
+            </div></p> -->
             </p>
         </div>
     </div>
@@ -67,60 +75,84 @@
 
     const showLoading = () => {
         document.getElementById("loading").classList.remove("hidden");
-        document.getElementById("file-label").classList.add("disabled");
     };
 
+    // Hide loading indicator
     const hideLoading = () => {
         document.getElementById("loading").classList.add("hidden");
-        document.getElementById("file-label").classList.remove("disabled");
     };
 
-    // Получить элемент кнопки
+    // Get file input element
     const inputFileBtn = document.getElementById("input-file-btn");
 
-    // Обработчик события изменения файла
+    // File change event handler
     inputFileBtn.addEventListener("change", async () => {
-        // Получить выбранный файл
+        // Get selected file
         const file = inputFileBtn.files[0];
 
-        // Проверить тип файла
+        // Check file type
         if (file.type !== "application/pdf") {
             alert("Пожалуйста, выберите файл PDF.");
-            return; // Прервать обработку, если файл не является PDF
-
+            return; // Stop processing if file is not PDF
         } else {
             showLoading();
-
         }
 
-        // Создать форму для отправки файла
+        // Create form data
         const formData = new FormData();
-        const token = "lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG";
+        const token =
+            "lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG";
 
         formData.append("file", file);
-        formData.append("token", 'lYHDhUpXoGjt5j0Aj7EA3hKOKxuyKfqRzqtJWxSW4oFA5DZ3XIyEHcq8oCkLxMFG')
+        formData.append("token", token);
 
-        // Отправить POST-запрос
+        // Send POST request
         const response = await fetch("https://identifile.ru:3000/api/check", {
             method: "POST",
-            // mode: "cors",
             body: formData,
         });
 
-        console.log(response)
+        // Get response headers
+        const headers = response.headers;
 
-        // Получить другой файл с сервера
+        // Get Detected header value
+        const detected = headers.get("Detected");
+
+        // Parse Detected header value as JSON
+        const detectedJson = JSON.parse(detected);
+
+        // Create alert message
+        //   let alertMessage = "";
+        let message = "*Обнаружено:*\n";
+        message += '- Печать: ' + detectedJson.stamp + '\n';
+        message += '- Соглашение: ' + detectedJson.agreement + '\n';
+        message += '- Счет: ' + detectedJson.invoice + '\n';
+        message += '- Подпись: ' + detectedJson.signature;
+        //   for (const key in detectedJson) {
+        //     alertMessage += key + detectedJson[key] + '\n';
+        //   }
+
+        // Display alert with Detected values
+        //   alert(alertMessage);
+        alert(message);
+
+        // Reload page after alert is closed
+        alert.onclose = () => {
+            location.reload();
+        };
+
+        // Get blob data
         const blob = await response.blob();
 
-        // Создать ссылку для скачивания файла
+        // Create download link
         const downloadLink = document.createElement("a");
         downloadLink.href = URL.createObjectURL(blob);
         downloadLink.download = "output.pdf";
+
         hideLoading();
 
-        // Начать скачивание файла
+        // Start file download
         downloadLink.click();
-        setTimeout(() => { window.location.reload() }, 1000);
     });
 </script>
 
