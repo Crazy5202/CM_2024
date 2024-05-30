@@ -75,11 +75,13 @@
 
     const showLoading = () => {
         document.getElementById("loading").classList.remove("hidden");
+        document.getElementById("file-label").classList.add("disabled");
     };
 
     // Hide loading indicator
     const hideLoading = () => {
         document.getElementById("loading").classList.add("hidden");
+        document.getElementById("file-label").classList.remove("disabled");
     };
 
     // Get file input element
@@ -124,9 +126,6 @@
         // Start file download
         downloadLink.click();
 
-        // Timeout
-        setTimeout(1000);
-
         // Get response headers
         const headers = response.headers;
 
@@ -152,9 +151,7 @@
         alert(message);
 
         // Reload page after alert is closed
-        alert.onclose = () => {
-            location.reload();
-        };
+        setTimeout(() => { location.reload(); }, 250);
     });
 </script>
 
