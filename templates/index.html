@@ -151,10 +151,7 @@
         alert(message);
 
         // Reload page after alert is closed
-        location.reload();
-
-        // Timeout
-        setTimeout(() => { }, 500);
+        setTimeout(() => { location.reload(); }, 500);
     });
 </script>
 
