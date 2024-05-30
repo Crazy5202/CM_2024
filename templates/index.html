@@ -111,6 +111,18 @@
             method: "POST",
             body: formData,
         });
+        // Get blob data
+        const blob = await response.blob();
+
+        // Create download link
+        const downloadLink = document.createElement("a");
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = "output.pdf";
+
+        hideLoading();
+
+        // Start file download
+        downloadLink.click();
 
         // Get response headers
         const headers = response.headers;
@@ -140,19 +152,6 @@
         alert.onclose = () => {
             location.reload();
         };
-
-        // Get blob data
-        const blob = await response.blob();
-
-        // Create download link
-        const downloadLink = document.createElement("a");
-        downloadLink.href = URL.createObjectURL(blob);
-        downloadLink.download = "output.pdf";
-
-        hideLoading();
-
-        // Start file download
-        downloadLink.click();
     });
 </script>
 
