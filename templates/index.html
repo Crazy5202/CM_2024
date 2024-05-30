@@ -95,6 +95,7 @@
         // Check file type
         if (file.type !== "application/pdf") {
             alert("Пожалуйста, выберите файл PDF.");
+            inputFileBtn.value = "";
             return; // Stop processing if file is not PDF
         } else {
             showLoading();
@@ -113,18 +114,6 @@
             method: "POST",
             body: formData,
         });
-        // Get blob data
-        const blob = await response.blob();
-
-        // Create download link
-        const downloadLink = document.createElement("a");
-        downloadLink.href = URL.createObjectURL(blob);
-        downloadLink.download = "output.pdf";
-
-        hideLoading();
-
-        // Start file download
-        downloadLink.click();
 
         // Get response headers
         const headers = response.headers;
@@ -151,7 +140,21 @@
         alert(message);
 
         // Reload page after alert is closed
-        setTimeout(() => { location.reload(); }, 250);
+        //  location.reload();
+
+        // Get blob data
+        const blob = await response.blob();
+
+        // Create download link
+        const downloadLink = document.createElement("a");
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = "output.pdf";
+
+        hideLoading();
+
+        // Start file download
+        downloadLink.click();
+        inputFileBtn.value = "";
     });
 </script>
 
